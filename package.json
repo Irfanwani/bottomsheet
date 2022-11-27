@@ -2,9 +2,14 @@
   "name": "react-native-bottom-sheet",
   "version": "1.0.0",
   "description": "Bottom sheet for react native apps",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/types.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -22,9 +27,16 @@
     "react-native-show-sheet"
   ],
   "author": "Irfanwani <irfanwani347@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/irfanwani/bottomsheet/issues"
   },
-  "homepage": "https://github.com/irfanwani/bottomsheet#readme"
+  "homepage": "https://github.com/irfanwani/bottomsheet#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
 }
