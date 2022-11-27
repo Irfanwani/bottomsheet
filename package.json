@@ -1,0 +1,30 @@
+{
+  "name": "react-native-bottom-sheet",
+  "version": "1.0.0",
+  "description": "Bottom sheet for react native apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irfanwani/bottomsheet.git"
+  },
+  "keywords": [
+    "bottom-sheet",
+    "react-native",
+    "react",
+    "react-native-bottom-sheet",
+    "react-native-popup",
+    "react-native-modal",
+    "react-native-options",
+    "react-native-settings",
+    "react-native-show-sheet"
+  ],
+  "author": "Irfanwani <irfanwani347@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irfanwani/bottomsheet/issues"
+  },
+  "homepage": "https://github.com/irfanwani/bottomsheet#readme"
+}
