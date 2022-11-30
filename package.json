@@ -1,5 +1,5 @@
 {
-  "name": "react-native-bottom-sheet",
+  "name": "@irfanwani/react-native-bottom-sheet",
   "version": "1.0.0",
   "description": "Bottom sheet for react native apps",
   "main": "lib/index.js",
@@ -24,7 +24,10 @@
     "react-native-modal",
     "react-native-options",
     "react-native-settings",
-    "react-native-show-sheet"
+    "react-native-show-sheet",
+    "android",
+    "ios",
+    "react-native-raw-bottom-sheet"
   ],
   "author": "Irfanwani <irfanwani347@gmail.com>",
   "license": "MIT",
@@ -33,6 +36,8 @@
   },
   "homepage": "https://github.com/irfanwani/bottomsheet#readme",
   "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-native": "^0.70.7",
     "typescript": "^4.9.3"
   },
   "peerDependencies": {
