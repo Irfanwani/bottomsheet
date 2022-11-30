@@ -25,6 +25,9 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     alignSelf: 'center',
   },
+  draggerview: {
+    padding: 5
+  }
 });
 
 export default styles;
