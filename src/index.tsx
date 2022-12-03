@@ -5,6 +5,7 @@ import {
   Animated,
   GestureResponderEvent,
   ViewStyle,
+  Dimensions,
 } from 'react-native';
 import styles, {HEIGHT} from './styles';
 
@@ -13,12 +14,21 @@ interface BSProps {
   visible: boolean;
   style?: ViewStyle;
   onClose: () => void;
+  onShow?: () => void;
 }
 
-const BottomSheet: FC<BSProps> = ({children, visible, style, onClose}) => {
+const BottomSheet: FC<BSProps> = ({
+  children,
+  visible,
+  style,
+  onClose,
+  onShow,
+}) => {
   const bottom = useRef(new Animated.Value(0)).current;
 
   const [shown, setShown] = useState(false);
+  const height = parseFloat(String(style?.height || HEIGHT));
+  const ht = Dimensions.get('window').height;
 
   useEffect(() => {
     Animated.timing(bottom, {
@@ -37,32 +47,29 @@ const BottomSheet: FC<BSProps> = ({children, visible, style, onClose}) => {
   }, [visible]);
 
   const handleMove = (event: GestureResponderEvent) => {
-    const y = event.nativeEvent.locationY;
-    bottom.setValue(y > 0 ? -y : 0);
+    const y = event.nativeEvent.pageY;
+    bottom.setValue(y > ht - height ? ht - height - y : 0);
   };
 
   const handleRelease = (event: GestureResponderEvent) => {
-    const y = event.nativeEvent.locationY;
-    const h = style?.height || HEIGHT;
-
-    if (y > parseInt(String(h)) / 4) {
-      Animated.timing(bottom, {
-        toValue: -h,
+    const y = event.nativeEvent.pageY;
+    if (y > ht - parseInt(String(height)) / 1.3) {
+      Animated.spring(bottom, {
+        toValue: -height,
         useNativeDriver: false,
-        duration: 300,
       }).start();
       onClose();
     } else {
-      Animated.timing(bottom, {
+      Animated.spring(bottom, {
         toValue: 0,
         useNativeDriver: false,
-        duration: 300,
       }).start();
     }
   };
 
   return (
     <Modal
+      onShow={onShow}
       visible={shown}
       transparent
       onRequestClose={onClose}

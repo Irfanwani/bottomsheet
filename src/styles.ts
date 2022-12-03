@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
   contentview: {
     backgroundColor: 'white',
     position: 'absolute',
-    bottom: 0,
     width: Dimensions.get('window').width,
     height: HEIGHT,
     maxHeight: HEIGHT * 3,
@@ -26,8 +25,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   draggerview: {
-    padding: 5
-  }
+    padding: 5,
+  },
 });
 
 export default styles;
