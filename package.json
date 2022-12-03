@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Bottom sheet for react native apps",
   "main": "lib/index.js",
-  "types": "lib/types.d.ts",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
