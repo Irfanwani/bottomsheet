@@ -59,9 +59,9 @@ export default App;
 
 | Prop                | Type                                     | Required                          | Note                                           |
 | ------------------- | ---------------------------------------- | --------------------------------- | ---------------------------------------------- |
-| `visible`           | `boolean`                                | True                              | Determines whether the bottomsheet is shown or not  |
+| `visible`           | `boolean`                                | True                              | Determines whether the bottomsheet is shown or not                    |
 
-| `children`          | `ReactElement | null`                    | True                              | Element to show in the bottom sheet         |
-| `onClose`           | `() => void`                             | True                              | Called when the bottomsheet is closed |
-| `onShow`            | `() => void`                             | False                             | Called when the bottomsheet opens  |
-| `style`             | `ViewStyle`                              | False                             | CustomStyles for the bottomsheet  | 
+| `children`          | `ReactElement | null`                    | True                              | Element to show in the bottom sheet                                          |
+| `onClose`           | `() => void`                             | True                              | Called when the bottomsheet is closed                                         |
+| `onShow`            | `() => void`                             | False                             | Called when the bottomsheet opens                                          |
+| `style`             | `ViewStyle`                              | False                             | CustomStyles for the bottomsheet                                    | 
