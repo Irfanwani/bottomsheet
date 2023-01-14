@@ -17,6 +17,7 @@ interface BSProps {
   onShow?: () => void;
   draggerViewStyle?: ViewStyle;
   draggerStyle?: ViewStyle;
+  draggable?: boolean;
 }
 
 const BottomSheet: FC<BSProps> = ({
@@ -27,6 +28,7 @@ const BottomSheet: FC<BSProps> = ({
   onShow,
   draggerViewStyle,
   draggerStyle,
+  draggable = true,
 }) => {
   const bottom = useRef(new Animated.Value(0)).current;
 
@@ -91,13 +93,15 @@ const BottomSheet: FC<BSProps> = ({
           },
         ]}>
         <Animated.View style={[styles.contentview, {...style, bottom}]}>
-          <View
-            onStartShouldSetResponder={() => true}
-            onResponderMove={handleMove}
-            onResponderRelease={handleRelease}
-            style={[styles.draggerview, draggerViewStyle]}>
-            <View style={[styles.dragger, draggerStyle]} />
-          </View>
+          {draggable ? (
+            <View
+              onStartShouldSetResponder={() => true}
+              onResponderMove={handleMove}
+              onResponderRelease={handleRelease}
+              style={[styles.draggerview, draggerViewStyle]}>
+              <View style={[styles.dragger, draggerStyle]} />
+            </View>
+          ) : null}
           {children}
         </Animated.View>
       </Animated.View>
