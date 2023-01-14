@@ -59,3 +59,4 @@ export default App;
 | `style`            | `ViewStyle`            | False    | CustomStyles for the bottomsheet                   |
 | `draggerViewStyle` | `ViewStyle`            | False    | CustomStyles for the dragger container view        |
 | `draggerStyle`     | `ViewStyle`            | False    | CustomStyles for the dragger Icon                  |
+| `draggable`        | `boolean`              | False    | whether to show the dragger view or not            |
