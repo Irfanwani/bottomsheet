@@ -15,6 +15,8 @@ interface BSProps {
   style?: ViewStyle;
   onClose: () => void;
   onShow?: () => void;
+  draggerViewStyle?: ViewStyle;
+  draggerStyle?: ViewStyle;
 }
 
 const BottomSheet: FC<BSProps> = ({
@@ -23,6 +25,8 @@ const BottomSheet: FC<BSProps> = ({
   style,
   onClose,
   onShow,
+  draggerViewStyle,
+  draggerStyle,
 }) => {
   const bottom = useRef(new Animated.Value(0)).current;
 
@@ -69,6 +73,7 @@ const BottomSheet: FC<BSProps> = ({
 
   return (
     <Modal
+      statusBarTranslucent
       onShow={onShow}
       visible={shown}
       transparent
@@ -90,8 +95,8 @@ const BottomSheet: FC<BSProps> = ({
             onStartShouldSetResponder={() => true}
             onResponderMove={handleMove}
             onResponderRelease={handleRelease}
-            style={styles.draggerview}>
-            <View style={styles.dragger} />
+            style={[styles.draggerview, draggerViewStyle]}>
+            <View style={[styles.dragger, draggerStyle]} />
           </View>
           {children}
         </Animated.View>

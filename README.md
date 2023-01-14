@@ -50,10 +50,12 @@ export default App;
 
 ## Props
 
-| Prop       | Type                   | Required | Note                                               |
-| ---------- | ---------------------- | -------- | -------------------------------------------------- |
-| `visible`  | `boolean`              | True     | Determines whether the bottomsheet is shown or not |
-| `children` | `ReactElement or null` | True     | Element to show in the bottom sheet                |
-| `onClose`  | `() => void`           | True     | Called when the bottomsheet is closed              |
-| `onShow`   | `() => void`           | False    | Called when the bottomsheet opens                  |
-| `style`    | `ViewStyle`            | False    | CustomStyles for the bottomsheet                   |
+| Prop               | Type                   | Required | Note                                               |
+| ------------------ | ---------------------- | -------- | -------------------------------------------------- |
+| `visible`          | `boolean`              | True     | Determines whether the bottomsheet is shown or not |
+| `children`         | `ReactElement or null` | True     | Element to show in the bottom sheet                |
+| `onClose`          | `() => void`           | True     | Called when the bottomsheet is closed              |
+| `onShow`           | `() => void`           | False    | Called when the bottomsheet opens                  |
+| `style`            | `ViewStyle`            | False    | CustomStyles for the bottomsheet                   |
+| `draggerViewStyle` | `ViewStyle`            | False    | CustomStyles for the dragger container view        |
+| `draggerStyle`     | `ViewStyle`            | False    | CustomStyles for the dragger Icon                  |
