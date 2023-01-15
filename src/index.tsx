@@ -38,15 +38,15 @@ const BottomSheet: FC<BSProps> = ({
 
   useEffect(() => {
     Animated.timing(bottom, {
-      toValue: visible ? 0 : -HEIGHT * 3,
-      useNativeDriver: false,
-      duration: 300,
+      toValue: visible ? ht - height : ht,
+      useNativeDriver: true,
+      duration: 250,
     }).start();
 
     if (!visible) {
       setTimeout(() => {
         setShown(false);
-      }, 300);
+      }, 250);
     } else {
       setShown(true);
     }
@@ -54,21 +54,21 @@ const BottomSheet: FC<BSProps> = ({
 
   const handleMove = (event: GestureResponderEvent) => {
     const y = event.nativeEvent.pageY;
-    bottom.setValue(y > ht - height ? ht - height - y : 0);
+    bottom.setValue(y > ht - height ? y : ht - height);
   };
 
   const handleRelease = (event: GestureResponderEvent) => {
     const y = event.nativeEvent.pageY;
     if (y > ht - parseInt(String(height)) / 1.3) {
       Animated.spring(bottom, {
-        toValue: -height,
-        useNativeDriver: false,
+        toValue: ht,
+        useNativeDriver: true,
       }).start();
       onClose();
     } else {
       Animated.spring(bottom, {
-        toValue: 0,
-        useNativeDriver: false,
+        toValue: ht - height,
+        useNativeDriver: true,
       }).start();
     }
   };
@@ -85,14 +85,16 @@ const BottomSheet: FC<BSProps> = ({
         style={[
           styles.mainview,
           {
-            backgroundColor: bottom.interpolate({
-              inputRange: [-HEIGHT * 3, 0],
-              outputRange: ['#00000000', '#00000055'],
+            opacity: bottom.interpolate({
+              inputRange: [ht - height, ht],
+              outputRange: [1, 0],
               extrapolate: 'clamp',
             }),
+
+            backgroundColor: '#00000055'
           },
         ]}>
-        <Animated.View style={[styles.contentview, {...style, bottom}]}>
+        <Animated.View style={[styles.contentview, {...style, transform: [{translateY: bottom}]}]}>
           {draggable ? (
             <View
               onStartShouldSetResponder={() => true}
